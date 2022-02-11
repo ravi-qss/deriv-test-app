@@ -1,4 +1,4 @@
-import 'package:deriv_test_app/model/active_symbols.dart';
+import 'package:deriv_test_app/api/active_symbols/active_symbols.dart';
 
 abstract class ActiveSymbolsState {
   ActiveSymbolsState();

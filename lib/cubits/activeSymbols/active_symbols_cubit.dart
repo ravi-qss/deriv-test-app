@@ -1,5 +1,5 @@
 import 'package:deriv_test_app/cubits/activeSymbols/active_symbols_state.dart';
-import 'package:deriv_test_app/model/active_symbols.dart';
+import 'package:deriv_test_app/api/active_symbols/active_symbols.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_deriv_api/basic_api/generated/api.dart';
@@ -24,4 +24,6 @@ class ActiveSymbolsCubit extends Cubit<ActiveSymbolsState>{
         activeSymbols: 'brief',
         productType: 'basic',
       ));
+
+
 }

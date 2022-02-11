@@ -1,4 +1,4 @@
-import 'active_symbols.dart';
+import '../api/active_symbols/active_symbols.dart';
 
 class ActiveSymbolsResponse {
   List<ActiveSymbols>? activeSymbols;
