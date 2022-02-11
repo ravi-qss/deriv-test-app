@@ -7,6 +7,7 @@ import 'package:flutter_deriv_api/state/connection/connection_cubit.dart'
 
 /// Sample App main widget
 class HomeApp extends StatefulWidget {
+  /// Home page constructor
   const HomeApp({Key? key}) : super(key: key);
 
   @override
@@ -53,7 +54,7 @@ class _HomeAppState extends State<HomeApp> {
               api_connection.ConnectionState state,
             ) {
               if (state is api_connection.ConnectionConnectedState) {
-                return const DashboardPage();
+                return DashboardPage();
               } else if (state is api_connection.ConnectionInitialState ||
                   state is api_connection.ConnectionConnectingState) {
                 return _buildCenterText('Connecting...');

@@ -2,32 +2,8 @@ import 'package:flutter_deriv_api/basic_api/generated/api.dart';
 import 'package:flutter_deriv_api/services/connection/api_manager/base_api.dart';
 import 'package:flutter_deriv_api/services/dependency_injector/injector.dart';
 
+// ignore_for_file: public_member_api_docs
 class ActiveSymbols {
-  int? allowForwardStarting;
-  String? displayName;
-  int? exchangeIsOpen;
-  int? isTradingSuspended;
-  String? market;
-  String? marketDisplayName;
-  double? pip;
-  String? submarket;
-  String? submarketDisplayName;
-  String? symbol;
-  String? symbolType;
-
-  ActiveSymbols(
-      {allowForwardStarting,
-      displayName,
-      exchangeIsOpen,
-      isTradingSuspended,
-      market,
-      marketDisplayName,
-      pip,
-      submarket,
-      submarketDisplayName,
-      symbol,
-      symbolType});
-
   ActiveSymbols.fromJson(Map<String, dynamic> json) {
     allowForwardStarting = json['allow_forward_starting'];
     displayName = json['display_name'];
@@ -41,6 +17,18 @@ class ActiveSymbols {
     symbol = json['symbol'];
     symbolType = json['symbol_type'];
   }
+
+  int? allowForwardStarting;
+  String? displayName;
+  int? exchangeIsOpen;
+  int? isTradingSuspended;
+  String? market;
+  String? marketDisplayName;
+  double? pip;
+  String? submarket;
+  String? submarketDisplayName;
+  String? symbol;
+  String? symbolType;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

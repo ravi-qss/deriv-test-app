@@ -10,9 +10,8 @@ import 'package:deriv_test_app/widgets/selected_active_symbol.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deriv_bloc_manager/bloc_managers/bloc_manager.dart';
 
+/// Dashboard Page
 class DashboardPage extends StatefulWidget {
-  const DashboardPage({Key? key}) : super(key: key);
-
   @override
   _DashboardPageState createState() => _DashboardPageState();
 }
@@ -31,16 +30,14 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(15),
-      child: Column(
-        children: const [
-          ActiveSymbolsWidget(),
-          SelectedActiveSymbolWidget(),
-          Expanded(child: AvailableContractsWidget()),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Container(
+        margin: const EdgeInsets.all(15),
+        child: Column(
+          children: const <Widget>[
+            ActiveSymbolsWidget(),
+            SelectedActiveSymbolWidget(),
+            Expanded(child: AvailableContractsWidget()),
+          ],
+        ),
+      );
 }

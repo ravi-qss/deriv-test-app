@@ -5,13 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_deriv_api/basic_api/generated/api.dart';
 
+/// AvailableContractsCubit class
 class AvailableContractsCubit extends Cubit<AvailableContractsState> {
+  /// AvailableContractsCubit Constructor with Initial State
   AvailableContractsCubit(AvailableContractsState initialState)
       : super(initialState);
 
-  void getAvailableContracts(ActiveSymbols? selectedSymbol) async {
+  /// Fetch AvailableContracts for selected Active Symbol
+  Future<void> getAvailableContracts(ActiveSymbols? selectedSymbol) async {
     emit(AvailableContractsLoading());
-    var result = await _fetchAvailableContracts(selectedSymbol);
+    final ContractsForSymbol result =
+        await _fetchAvailableContracts(selectedSymbol);
     try {
       emit(AvailableContractsLoaded(contracts: result));
     } on Exception catch (e) {

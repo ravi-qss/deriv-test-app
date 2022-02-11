@@ -31,6 +31,11 @@ dev_dependencies:
       url: git@github.com:regentmarkets/flutter-deriv-packages.git
       path: packages/deriv_bloc_manager
       ref: dev
+  deriv_lint:
+    git:
+      url: git@github.com:regentmarkets/flutter-deriv-packages.git
+      path: packages/deriv_lint
+      ref: dev
 
 flutter:
 

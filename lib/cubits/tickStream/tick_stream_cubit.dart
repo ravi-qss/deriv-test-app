@@ -6,10 +6,13 @@ import 'package:flutter_deriv_api/api/common/tick/exceptions/tick_exception.dart
 import 'package:flutter_deriv_api/api/common/tick/tick.dart';
 import 'package:flutter_deriv_api/basic_api/generated/ticks_send.dart';
 
+/// TickStream Cubit class
 class TickStreamCubit extends Cubit<TicksStreamState> {
+  /// TickStream Cubit Constructor
   TickStreamCubit(TicksStreamState initialState) : super(initialState);
 
-  void getTicksForSymbol(ActiveSymbols? selectedSymbol) async {
+  /// Fetch Ticks for Selected Active Symbol
+  Future<void> getTicksForSymbol(ActiveSymbols? selectedSymbol) async {
     emit(TicksLoading());
     await _unsubscribeTick();
 

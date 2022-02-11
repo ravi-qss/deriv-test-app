@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'home.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 /// The main widget.
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   _MyAppState createState() => _MyAppState();
 }

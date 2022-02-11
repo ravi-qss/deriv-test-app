@@ -1,16 +1,11 @@
 import '../api/active_symbols/active_symbols.dart';
 
+// ignore_for_file: public_member_api_docs
 class ActiveSymbolsResponse {
-  List<ActiveSymbols>? activeSymbols;
-  EchoReq? echoReq;
-  String? msgType;
-
-  ActiveSymbolsResponse({activeSymbols, echoReq, msgType});
-
   ActiveSymbolsResponse.fromJson(Map<String, dynamic> json) {
     if (json['active_symbols'] != null) {
       activeSymbols = <ActiveSymbols>[];
-      json['active_symbols'].forEach((v) {
+      json['active_symbols'].forEach((Map<String, dynamic> v) {
         activeSymbols!.add(ActiveSymbols.fromJson(v));
       });
     }
@@ -19,10 +14,16 @@ class ActiveSymbolsResponse {
     msgType = json['msg_type'];
   }
 
+  List<ActiveSymbols>? activeSymbols;
+  EchoReq? echoReq;
+
+  String? msgType;
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     if (activeSymbols != null) {
-      data['active_symbols'] = activeSymbols!.map((v) => v.toJson()).toList();
+      data['active_symbols'] =
+          activeSymbols!.map((ActiveSymbols v) => v.toJson()).toList();
     }
     if (echoReq != null) {
       data['echo_req'] = echoReq!.toJson();
@@ -33,15 +34,14 @@ class ActiveSymbolsResponse {
 }
 
 class EchoReq {
-  String? activeSymbols;
-  String? productType;
-
-  EchoReq({activeSymbols, productType});
-
   EchoReq.fromJson(Map<String, dynamic> json) {
     activeSymbols = json['active_symbols'];
     productType = json['product_type'];
   }
+
+  String? activeSymbols;
+
+  String? productType;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

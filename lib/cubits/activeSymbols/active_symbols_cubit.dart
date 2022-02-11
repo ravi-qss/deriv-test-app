@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_deriv_api/basic_api/generated/api.dart';
 
+/// ActiveSymbolsCubit class
 class ActiveSymbolsCubit extends Cubit<ActiveSymbolsState> {
+  /// ActiveSymbolsCubit Constructor with Initial State
   ActiveSymbolsCubit(ActiveSymbolsState initialState) : super(initialState);
 
-  void getActiveSymbols() async {
-    var result = await _fetchActiveSymbols();
+  /// Fetch active symbols from API and emit result to listeners
+  Future<void> getActiveSymbols() async {
+    final List<ActiveSymbols> result = await _fetchActiveSymbols();
     try {
       emit(ActiveSymbolsLoaded(activeSymbols: result));
     } on Exception catch (e) {
@@ -23,6 +26,7 @@ class ActiveSymbolsCubit extends Cubit<ActiveSymbolsState> {
         productType: 'basic',
       ));
 
+  /// Update the selected symbol and updated the State by emit
   void updateSelectedSymbol(
           {required List<ActiveSymbols>? activeSymbols,
           required ActiveSymbols? selectedSymbol}) =>
