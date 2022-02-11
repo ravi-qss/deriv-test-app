@@ -63,7 +63,8 @@ class _SelectedActiveSymbolWidgetState
                       Expanded(
                           flex: 2,
                           child: Text(
-                              '${activeSymbolState.selectedSymbol?.displayName}')),
+                              '${activeSymbolState.selectedSymbol
+                                  ?.displayName}')),
                     ],
                   );
                 }

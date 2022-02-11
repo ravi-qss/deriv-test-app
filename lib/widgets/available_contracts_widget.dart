@@ -83,7 +83,9 @@ class _AvailableContractsWidgetState extends State<AvailableContractsWidget> {
                                         Expanded(
                                           flex: 2,
                                           child: Text(
-                                              '${contractsState.contracts?.availableContracts?[index]?.contractCategory}'),
+                                              '${contractsState.contracts
+                                                  ?.availableContracts
+                                              ?[index]?.contractCategory}'),
                                         ),
                                       ],
                                     ),
@@ -101,7 +103,9 @@ class _AvailableContractsWidgetState extends State<AvailableContractsWidget> {
                                         Expanded(
                                           flex: 2,
                                           child: Text(
-                                              '${contractsState.contracts?.availableContracts?[index]?.exchangeName}'),
+                                              '${contractsState.contracts
+                                                  ?.availableContracts
+                                              ?[index]?.exchangeName}'),
                                         ),
                                       ],
                                     ),
@@ -119,7 +123,9 @@ class _AvailableContractsWidgetState extends State<AvailableContractsWidget> {
                                         Expanded(
                                           flex: 2,
                                           child: Text(
-                                              '${contractsState.contracts?.availableContracts?[index]?.market}'),
+                                              '${contractsState.contracts
+                                                  ?.availableContracts
+                                              ?[index]?.market}'),
                                         ),
                                       ],
                                     ),
@@ -137,7 +143,9 @@ class _AvailableContractsWidgetState extends State<AvailableContractsWidget> {
                                         Expanded(
                                           flex: 2,
                                           child: Text(
-                                              '${contractsState.contracts?.availableContracts?[index]?.submarket}'),
+                                              '${contractsState.contracts
+                                                  ?.availableContracts
+                                              ?[index]?.submarket}'),
                                         ),
                                       ],
                                     ),
