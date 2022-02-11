@@ -1,6 +1,6 @@
+import 'package:flutter_deriv_api/basic_api/generated/api.dart';
 import 'package:flutter_deriv_api/services/connection/api_manager/base_api.dart';
 import 'package:flutter_deriv_api/services/dependency_injector/injector.dart';
-import 'package:flutter_deriv_api/basic_api/generated/api.dart';
 
 class ActiveSymbols {
   int? allowForwardStarting;
@@ -17,16 +17,16 @@ class ActiveSymbols {
 
   ActiveSymbols(
       {allowForwardStarting,
-        displayName,
-        exchangeIsOpen,
-        isTradingSuspended,
-        market,
-        marketDisplayName,
-        pip,
-        submarket,
-        submarketDisplayName,
-        symbol,
-        symbolType});
+      displayName,
+      exchangeIsOpen,
+      isTradingSuspended,
+      market,
+      marketDisplayName,
+      pip,
+      submarket,
+      submarketDisplayName,
+      symbol,
+      symbolType});
 
   ActiveSymbols.fromJson(Map<String, dynamic> json) {
     allowForwardStarting = json['allow_forward_starting'];
@@ -43,7 +43,7 @@ class ActiveSymbols {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['allow_forward_starting'] = allowForwardStarting;
     data['display_name'] = displayName;
     data['exchange_is_open'] = exchangeIsOpen;
@@ -61,10 +61,10 @@ class ActiveSymbols {
   static final BaseAPI _api = Injector.getInjector().get<BaseAPI>()!;
 
   static Future<List<ActiveSymbols>> fetchActiveSymbols(
-      ActiveSymbolsRequest request,
-      ) async {
+    ActiveSymbolsRequest request,
+  ) async {
     final ActiveSymbolsResponse response =
-    await _api.call<ActiveSymbolsResponse>(
+        await _api.call<ActiveSymbolsResponse>(
       request: request,
     );
 

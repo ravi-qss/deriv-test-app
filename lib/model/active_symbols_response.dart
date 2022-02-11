@@ -14,17 +14,15 @@ class ActiveSymbolsResponse {
         activeSymbols!.add(ActiveSymbols.fromJson(v));
       });
     }
-    echoReq = json['echo_req'] != null
-        ?  EchoReq.fromJson(json['echo_req'])
-        : null;
+    echoReq =
+        json['echo_req'] != null ? EchoReq.fromJson(json['echo_req']) : null;
     msgType = json['msg_type'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (activeSymbols != null) {
-      data['active_symbols'] =
-          activeSymbols!.map((v) => v.toJson()).toList();
+      data['active_symbols'] = activeSymbols!.map((v) => v.toJson()).toList();
     }
     if (echoReq != null) {
       data['echo_req'] = echoReq!.toJson();
@@ -33,8 +31,6 @@ class ActiveSymbolsResponse {
     return data;
   }
 }
-
-
 
 class EchoReq {
   String? activeSymbols;
@@ -48,7 +44,7 @@ class EchoReq {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['active_symbols'] = activeSymbols;
     data['product_type'] = productType;
     return data;

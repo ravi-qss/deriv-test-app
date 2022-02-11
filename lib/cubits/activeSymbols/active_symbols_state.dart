@@ -13,6 +13,7 @@ class ActiveSymbolsError extends ActiveSymbolsState {
   ActiveSymbolsError(this.message);
 
   final String? message;
+
   @override
   String toString() => 'ActiveSymbolsError';
 }

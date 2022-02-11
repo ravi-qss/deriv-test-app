@@ -1,6 +1,6 @@
+import 'package:deriv_test_app/api/active_symbols/active_symbols.dart';
 import 'package:deriv_test_app/cubits/activeSymbols/active_symbols_cubit.dart';
 import 'package:deriv_test_app/cubits/activeSymbols/active_symbols_state.dart';
-import 'package:deriv_test_app/api/active_symbols/active_symbols.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_deriv_bloc_manager/bloc_managers/bloc_manager.dart';
@@ -29,17 +29,18 @@ class _ActiveSymbolsWidgetState extends State<ActiveSymbolsWidget> {
         builder: (context, activeSymbolState) {
           if (activeSymbolState is ActiveSymbolsLoading) {
             return const Text('Loading Active Symbols...');
-          }
-          if (activeSymbolState is ActiveSymbolsError) {
+          }else if (activeSymbolState is ActiveSymbolsError) {
             return Text('${activeSymbolState.message}');
-          }
-
-          if (activeSymbolState is ActiveSymbolsLoaded) {
+          }else if (activeSymbolState is ActiveSymbolsLoaded) {
             var activeSymbols = activeSymbolState.activeSymbols;
             return Column(
+              crossAxisAlignment: CrossAxisAlignment.start ,
               children: [
+                const Text(
+                  'Active Symbols',
+                  style: TextStyle(fontSize: 24),
+                ),
                 DropdownButtonFormField(
-                  decoration: const InputDecoration(icon: Icon(Icons.language)),
                   value: activeSymbols?[0],
                   items: activeSymbols?.map<DropdownMenuItem<ActiveSymbols>>(
                       (ActiveSymbols activeSymbols) {
@@ -51,9 +52,7 @@ class _ActiveSymbolsWidgetState extends State<ActiveSymbolsWidget> {
                     );
                   }).toList(),
                   onChanged: (ActiveSymbols? activeSymbol) {
-                    activeSymbolsCubit.emit(ActiveSymbolsLoaded(
-                        activeSymbols: activeSymbols,
-                        selectedSymbol: activeSymbol));
+                    activeSymbolsCubit.updateSelectedSymbol(activeSymbols: activeSymbols, selectedSymbol: activeSymbol);
                   },
                 ),
                 const SizedBox(

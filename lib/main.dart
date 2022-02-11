@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'home.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 /// The main widget.
 class MyApp extends StatefulWidget {
